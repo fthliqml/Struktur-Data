@@ -1,31 +1,38 @@
 package DoublyLinkedList;
 
 public class Node {
-    private int value;
+    private int val;
     private Node next;
     private Node prev;
 
-    public Node(int value) {
-        this.value = value;
+    public Node(int val) {
+        this.val = val;
     }
 
-    public int getValue() {
-        return value;
+    public Node(int val, Node next, Node prev) {
+        this.val = val;
+        this.next = next;
+        this.prev = prev;
     }
 
     public Node getNext() {
-        return next;
-    }
-
-    public void setNext(Node next) {
-        this.next = next;
+        return this.next;
     }
 
     public Node getPrev() {
-        return prev;
+        return this.prev;
     }
 
-    public void setPrev(Node prev) {
-        this.prev = prev;
+    public Integer getVal() {
+        return this.val;
     }
+
+    public void setNext(Node Next) {
+        this.next = Next;
+    }
+
+    public void setPrev(Node Prev) {
+        this.prev = Prev;
+    }
+
 }
