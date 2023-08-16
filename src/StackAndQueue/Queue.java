@@ -1,15 +1,15 @@
 package StackAndQueue;
 
-public class Stack {
+public class Queue {
     private Node first;
 
-    public Stack() {
+    public Queue(){
         this.first = null;
     }
 
     public void push(int value){
         Node newNode = new Node(value);
-        if (first == null){
+        if(first == null){
             first = newNode;
         } else {
             newNode.setNext(first);
@@ -19,13 +19,23 @@ public class Stack {
 
     public void pop(){
         int popValue;
-        if(first == null){
+        Node currentNode = first;
+        if (currentNode == null) {
             System.out.print("Pop Method Message : ");
             System.out.println("\u001B[31m" +"Queue Is Already Null!\n" + "\u001B[0m");
-        } else {
+        }else if(currentNode.getNext() == null){
             popValue = first.getValue();
             System.out.println("Pop Method Success!(Pop Value : "+popValue+")\n");
-            first = first.getNext();
+            first = null;
+        } else{
+            while (currentNode != null){
+                if(currentNode.getNext().getNext() == null){
+                    popValue = currentNode.getNext().getValue();
+                    System.out.println("Pop Method Success!(Pop Value : "+popValue+")\n");
+                    currentNode.setNext(null);
+                }
+                currentNode = currentNode.getNext();
+            }
         }
     }
 
@@ -42,16 +52,17 @@ public class Stack {
         int size = 0;
         System.out.println("\u001B[36m" + "-----------Display------------");
         if (currentNode == null) {
-            System.out.println("\u001B[34m" + "[Stack-List Is Null]" + "\u001B[0m");
+            System.out.println("\u001B[34m" + "[Queue Is Null]" + "\u001B[0m");
         } else {
-            System.out.print("\u001B[34m" + "In/Out : ");
+            System.out.print("\u001B[34m" + "In : ");
             while (currentNode != null){
                 System.out.print("[" + currentNode.getValue() + "] -> ");
                 currentNode = currentNode.getNext();
                 size++;
             }
-            System.out.println("||" + "\u001B[0m");
+            System.out.println("Out" + "\u001B[0m");
         }
-        System.out.println("Ukuran Stack-List : " + size + "\n");
+        System.out.println("Ukuran Queue : " + size + "\n");
     }
+
 }
