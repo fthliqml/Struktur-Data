@@ -10,6 +10,8 @@ public class Main {
         ll.add(3);
         ll.add(4);
 
+
+        ll.swap(0, 0);
         ll.display();
 
     }

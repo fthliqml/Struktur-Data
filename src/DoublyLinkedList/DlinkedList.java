@@ -71,7 +71,6 @@ public class DlinkedList {
         }
         throw new NoSuchElementException("Linked list kosong");
     }
-
     public void remove(int index) {
         if (index == 0) {
             if (first != null) {
@@ -141,7 +140,7 @@ public class DlinkedList {
 
     public void swap(int index1, int index2) {
         if (lenght < index1 || index1 < 0 || lenght < index2 || index2 < 0) {
-            throw new IllegalArgumentException("Index di luar jangkauan");
+            throw new ArrayIndexOutOfBoundsException();
         }
         if (index1 > index2) {
             int var = index2;
@@ -157,7 +156,7 @@ public class DlinkedList {
         Node temp2 = null;
 
         if (pos1.getNext() == pos2) {
-            // swap node yang bersebelahan
+            //swap node yang bersebelahan
             temp1 = pos2;
             temp2 = pos1;
 
@@ -182,34 +181,30 @@ public class DlinkedList {
             // swap yang berjauhan
             temp1 = pos2.getNext();
             temp2 = pos2.getPrev();
-
-            // Mengecek apakah pos1 merupakan first atau tidak
+            
             if (pos1.getPrev() != null) {
                 pos1.getPrev().setNext(pos2);
             } else {
                 first = pos2;
             }
 
-            // Mengecek pos1 apakah node merupakan last atau tidak
             if (pos1.getNext() != null) {
                 pos1.getNext().setPrev(pos2);
             } else {
                 last = pos2;
             }
 
-            // mengecek apakah pos2.next() adalah null atau tidak ?
             if (temp1 != null) {
                 temp1.setPrev(pos1);
             } else {
                 last = pos1;
             }
-            // mengecek apakah pos2 merupakan head atau tidak
+
             if (temp2 != null) {
                 temp2.setNext(pos1);
             } else {
                 first = pos1;
             }
-
             pos2.setNext(pos1.getNext());
             pos2.setPrev(pos1.getPrev());
             pos1.setNext(temp1);
@@ -220,33 +215,26 @@ public class DlinkedList {
 
     public void display() {
 
-        if (this.lenght != 0) {
-            Node temp = first;
-            System.out.println("This is normal:");
-            while (temp != null) {
-                System.out.print("[" + temp.getVal() + "] -> ");
-                temp = temp.getNext();
-            }
-            System.out.println("Null");
-            System.out.println("Total Length = " + lenght);
-        }else{
-            System.out.println("[ Linked List masih Kosong ]");
+        Node temp = first;
+        System.out.println("this is normal streamline");
+        while (temp != null) {
+            System.out.print(temp.getVal() + " -> ");
+            temp = temp.getNext();
         }
+
+        System.out.println("end = " + lenght);
+
     }
 
     public void displayReverse() {
-        if (this.lenght != 0) {
-            Node temp = last;
-            System.out.println("This is reverse:");
-            while (temp != null) {
-                System.out.print("[" + temp.getVal() + "] -> ");
-                temp = temp.getPrev();
-            }
-            System.out.println("Null");
-            System.out.println("Total Length = " + lenght);
-        }else{
-            System.out.println("[ Linked List masih Kosong ]");
+        Node temp = last;
+        System.out.println("This is reverse :");
+        while (temp != null) {
+            System.out.print(temp.getVal() + " -> ");
+            temp = temp.getPrev();
         }
+
+        System.out.println("start");
     }
 
 }

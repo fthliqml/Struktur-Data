@@ -27,10 +27,10 @@ public class SLinkedList {
 
     public void insert(int value, int index){
         int length = 0;
-        Node var = first;
-        while (var != null){
+        Node temp = first;
+        while (temp != null){
             length++;
-            var = var.getNext();
+            temp = temp.getNext();
         }
 
         if (index < length && index >= 0){
@@ -61,10 +61,10 @@ public class SLinkedList {
 
     public void remove(int index) {
         int length = 0;
-        Node var = first;
-        while (var != null){
+        Node temp = first;
+        while (temp != null){
             length++;
-            var = var.getNext();
+            temp = temp.getNext();
         }
 
         if (index < length && index >= 0){
@@ -92,6 +92,11 @@ public class SLinkedList {
         while (var != null){
             length++;
             var = var.getNext();
+        }
+
+        if (index1 == index2) {
+            System.out.println("Swap method meesage : " + "\u001B[31m" +"Index Tidak Boleh Sama!" + "\u001B[0m");
+            return;
         }
 
         if (index1 >= length || index1 < 0 || index2 >= length || index2 < 0 ) {
