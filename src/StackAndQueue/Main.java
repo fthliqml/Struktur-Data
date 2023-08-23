@@ -2,26 +2,21 @@ package StackAndQueue;
 
 public class Main {
     public static void main(String[] args) {
+
+       Queue queue = new Queue();
+       queue.push("A");
+       queue.push("B");
+       queue.push("C");
+       queue.push("D");
+       queue.push("E");
+
+       queue.display();
+
         Stack stack = new Stack();
-//        stack.push(10);
-//        stack.display();
-//        stack.pop();
-//        stack.push(1);
-//        stack.push(5);
-//        stack.push(6);
-//        stack.display();
-//        stack.display();
-
-
-
-//        System.out.println("-----------------QUEUE-----------------\n");
-        Queue queue = new Queue();
-        queue.push(5);
-        queue.push(3);
-        queue.push(7);
-        queue.display();
-        queue.swap(1,2);
-        queue.display();
+        stack.push(2);
+        stack.push(3);
+        stack.pop();
+        stack.display();
 
 
     }

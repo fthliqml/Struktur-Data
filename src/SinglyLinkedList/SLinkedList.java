@@ -187,15 +187,20 @@ public class SLinkedList {
     }
 
     public void  display(){
-        Node temp = first;
+        Node currentNode = first;
         int size = 0;
-        while (temp != null){
-            System.out.print(temp.getValue() + " -> ");
-            temp = temp.getNext();
-            size++;
+        if (currentNode == null) {
+            System.out.println("\u001B[34m" + "Singly Linked List Is Null" + "\u001B[0m");
+        } else {
+            while (currentNode != null){
+                System.out.print(currentNode.getValue() + " -> ");
+                currentNode = currentNode.getNext();
+                size++;
+            }
+            System.out.println("Null");
+            System.out.println("Ukuran Linked-list : " + size);
         }
-        System.out.println("NULL");
-        System.out.println("Ukuran Linked-list : " + size);
+
     }
 
 

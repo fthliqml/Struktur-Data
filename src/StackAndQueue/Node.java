@@ -1,10 +1,10 @@
 package StackAndQueue;
 
 public class Node {
-    private int value;
+    private Object value;
     private  Node next;
 
-    public Node(int value) {
+    public Node(Object value) {
         this.value = value;
         this.next = null;
     }
@@ -17,7 +17,7 @@ public class Node {
         this.next = next;
     }
 
-    public int getValue() {
+    public Object getValue() {
         return value;
     }
 }
