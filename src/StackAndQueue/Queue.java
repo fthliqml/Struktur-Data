@@ -20,7 +20,9 @@ public class Queue {
     }
 
     public Object pop(){
-        length--;
+        if(length > 0){
+            length--;
+        }
         Object popValue = null;
         Node currentNode = first;
         if (currentNode == null) {

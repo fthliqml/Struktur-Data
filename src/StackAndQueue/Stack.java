@@ -20,7 +20,9 @@ public class Stack {
     }
 
     public Object pop(){
-        length--;
+        if(length > 0){
+            length--;
+        }
         Object popValue = null;
         if(first == null){
             System.out.print("Pop Method Message : ");
