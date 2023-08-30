@@ -1,4 +1,4 @@
-const arr = [100, 30, 1, 6, 22, 7, 16, 1, 12, 22];
+const arr = [100, 30, 1, 6, 22, 7, 16, 3, 12, 22, 234, 30, 6];
 
 function SelectionSort (arr) {
   let i, j, getIndex, temp;
@@ -12,8 +12,11 @@ function SelectionSort (arr) {
         getIndex = j;
       }
     }
-    arr[getIndex] = arr[i];
-    arr[i] = temp;
+    if (temp != arr[i]){
+      arr[getIndex] = arr[i];
+      arr[i] = temp;
+    }
+    console.log("Selected Value : "+temp);
     console.log(arr);
   }
   console.log('Hasil Akhir');
@@ -21,5 +24,5 @@ function SelectionSort (arr) {
 }
 console.log('Tampilan Awal');
 console.log(arr);
-console.log('Proses Selection Sort');
+console.log("");
 SelectionSort(arr);
