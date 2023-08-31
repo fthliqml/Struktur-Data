@@ -1,5 +1,12 @@
-const arr = [100, 30, 1, 6, 22, 7, 16, 3, 12, 22, 234, 30, 6];
-
+const RandomNumber = (count) =>{
+    const arrs = new Array();
+    for (let i = 0; i < count ; i++) {
+        let rand = Math.random();
+        const l = Math.floor(rand < 0.5 ? Math.random()* -100: Math.random() * 100);
+        arrs.push(l);
+    }
+    return arrs;
+}
 function SelectionSort (arr) {
   let i, j, getIndex, temp;
 
@@ -22,7 +29,9 @@ function SelectionSort (arr) {
   console.log('Hasil Akhir');
   console.log(arr);
 }
+
+const array = RandomNumber(10);
 console.log('Tampilan Awal');
-console.log(arr);
+console.log(array);
 console.log("");
-SelectionSort(arr);
+SelectionSort(array);
