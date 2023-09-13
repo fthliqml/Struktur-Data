@@ -1,4 +1,4 @@
-package StukturData.stackQueue;
+package stackQueue;
 
 public class NodeClass {
     private int value;

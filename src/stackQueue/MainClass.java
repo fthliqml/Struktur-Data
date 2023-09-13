@@ -1,4 +1,4 @@
-package StukturData.stackQueue;
+package stackQueue;
 
 public class MainClass {
     public static void main(String[] args) {
