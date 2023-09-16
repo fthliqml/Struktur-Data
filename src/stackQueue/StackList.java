@@ -1,4 +1,4 @@
-package StukturData.stackQueue;
+package stackQueue;
 
 public class StackList {
     private NodeClass first;
