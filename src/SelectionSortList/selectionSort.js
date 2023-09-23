@@ -7,7 +7,7 @@ const RandomNumber = (count) =>{
     const arrs = new Array();
     for (let i = 0; i < count ; i++) {
         let rand = Math.random();
-        const l = Math.floor(rand < 0.5 ? Math.random()* - 100000: Math.random() * 100000);
+        const l = Math.floor(rand < 0.5 ? Math.random()* - 100: Math.random() * 100);
         arrs.push(l);
     }
     return arrs;
