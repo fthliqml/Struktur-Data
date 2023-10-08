@@ -12,8 +12,11 @@ public class App {
         tree.add(60);
         tree.add(80);
 
-        // Display the sorted nodes
         System.out.println("Sorted Nodes:");
         tree.display();
+        tree.remove(30);
+        tree.display();
+        tree.search(70);
+        
     }
 }
