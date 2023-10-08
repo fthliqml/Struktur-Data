@@ -5,11 +5,18 @@ public class Tree {
         this.root = root;
     }
 
-    public boolean search(Node parent, int key) {
+    public boolean search(int key) {
+        boolean found = search(root, key);
+        System.out.println(found);
+        return found;
+    }
+
+    private boolean search(Node parent, int key) {
         if (parent == null) {
             return false;
         } else {
             if (parent.getKey() == key) {
+                System.out.println("Node found" + key);
                 return true;
             }
             if (parent.getKey() > key) {
@@ -26,56 +33,90 @@ public class Tree {
         if (search(root, key)) {
             return false;
         }
-        if (root == null){
+        if (root == null) {
             root = node;
             return true;
         }
         insert(root, node);
-        return true ;
+        return true;
     }
 
-    public boolean insert(Node parent, Node node){
+    private boolean insert(Node parent, Node node) {
         if (parent.getKey() > node.getKey()) {
             if (parent.getLeft() == null) {
                 parent.setLeft(node);
-            }else{
+            } else {
                 insert(parent.getLeft(), node);
             }
-        }else{
+        } else {
             if (parent.getRight() == null) {
                 parent.setRight(node);
-            }else{
+            } else {
                 insert(parent.getRight(), node);
             }
         }
         return true;
-        
+
     }
-    public boolean remove(int key){
-        if(!search(root, key)){
+
+    public boolean remove(int key) {
+        if (root == null) {
+            System.out.println("Tree still Empty");
             return false;
         }
-        
+        if (!search(root, key)) {
+            System.out.println("Couldnt found" + key + "Node in Tree");
+            return false;
+        }
+        root = remove(root, key);
+        System.out.println("Succeded Deleted" + key + "node");
         return true;
     }
-   
+
+    public Node remove(Node node, int key) {
+        if (node == null) {
+            return node;
+        }
+        if (key < node.getKey()) {
+            node.setLeft(remove(node.getLeft(), key));
+        }else if (key > node.getKey()) {
+            node.setRight(remove(node.getRight(), key));
+        } else {
+            if (node.getLeft() == null) {
+                return node.getRight();
+            }else if (node.getRight() == null) {
+                return node.getLeft();
+            }
+
+           node.setKey(succesor(node.getRight()));
+           node.setRight(remove(node.getRight(), node.getKey()));
+        }
+        return node;
+    }
+
+    private static int succesor(Node node) {
+        int minimum = node.getKey();
+
+        while (node.getLeft() != null) {
+            minimum = node.getLeft().getKey();
+            node = node.getLeft();
+        }
+        return minimum;
+    }
+
     public void display(Node root, String prefix, boolean isLeft) {
         if (root != null) {
-            System.out.println(prefix + (isLeft ? "├── " : "└── ") + root.getKey());
+            System.out.println(prefix + (isLeft ? "|---" : "`--- ") + root.getKey());
             display(root.getLeft(), prefix + (isLeft ? "│   " : "    "), true);
             display(root.getRight(), prefix + (isLeft ? "│   " : "    "), false);
         }
     }
-    
+
     public void display() {
         display(root, "", true);
     }
-    
 
-
-    public Node getRoot(){
+    public Node getRoot() {
         return root;
     }
 }
-
-
