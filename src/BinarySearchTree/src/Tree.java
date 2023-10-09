@@ -111,10 +111,35 @@ public class Tree {
             display(root.getRight(), prefix + (isLeft ? "│   " : "    "), false);
         }
     }
+    
 
     public void display() {
         display(root, "", true);
     }
+    public void inorderTraversal(Node node){
+        if (node != null) {
+            inorderTraversal(node.getLeft());
+            System.out.print(node.getKey() + " ");
+            inorderTraversal(node.getRight());
+        }
+    }
+    public void preorderTraversal(Node node){
+        if (node == null) {
+            return;
+        }
+        System.out.print(node.getKey() + " ");
+        preorderTraversal(node.getLeft());
+        preorderTraversal(node.getRight());
+    }
+    public void postorderTraversal(Node node){
+        if (node == null) {
+            return;
+        }
+        postorderTraversal(node.getLeft());
+        postorderTraversal(node.getRight());
+        System.out.print(node.getKey() + " ");
+    }
+
 
     public Node getRoot() {
         return root;

@@ -14,9 +14,7 @@ public class App {
 
         System.out.println("Sorted Nodes:");
         tree.display();
-        tree.remove(30);
-        tree.display();
-        tree.search(70);
+        tree.preorderTraversal(tree.getRoot());        
         
     }
 }
