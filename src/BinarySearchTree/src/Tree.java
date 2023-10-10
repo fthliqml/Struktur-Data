@@ -1,3 +1,4 @@
+
 public class Tree {
     private Node root;
 
@@ -16,7 +17,7 @@ public class Tree {
             return false;
         } else {
             if (parent.getKey() == key) {
-                System.out.println("Node found" + key);
+                System.out.println("Node found = " + key);
                 return true;
             }
             if (parent.getKey() > key) {
@@ -29,8 +30,10 @@ public class Tree {
 
     public boolean add(int key) {
         Node node = new Node(key);
+        boolean isThere = search(root, key);
 
-        if (search(root, key)) {
+        if (isThere) {
+            System.out.println(key + " Didalam node? " + isThere);
             return false;
         }
         if (root == null) {
@@ -65,11 +68,11 @@ public class Tree {
             return false;
         }
         if (!search(root, key)) {
-            System.out.println("Couldnt found" + key + "Node in Tree");
+            System.out.println("Couldnt found " + key + " Node in Tree");
             return false;
         }
         root = remove(root, key);
-        System.out.println("Succeded Deleted" + key + "node");
+        System.out.println("Succeded Deleted " + key + " node");
         return true;
     }
 
@@ -79,17 +82,17 @@ public class Tree {
         }
         if (key < node.getKey()) {
             node.setLeft(remove(node.getLeft(), key));
-        }else if (key > node.getKey()) {
+        } else if (key > node.getKey()) {
             node.setRight(remove(node.getRight(), key));
         } else {
             if (node.getLeft() == null) {
                 return node.getRight();
-            }else if (node.getRight() == null) {
+            } else if (node.getRight() == null) {
                 return node.getLeft();
             }
 
-           node.setKey(succesor(node.getRight()));
-           node.setRight(remove(node.getRight(), node.getKey()));
+            node.setKey(succesor(node.getRight()));
+            node.setRight(remove(node.getRight(), node.getKey()));
         }
         return node;
     }
@@ -104,26 +107,15 @@ public class Tree {
         return minimum;
     }
 
-    public void display(Node root, String prefix, boolean isLeft) {
-        if (root != null) {
-            System.out.println(prefix + (isLeft ? "|---" : "`--- ") + root.getKey());
-            display(root.getLeft(), prefix + (isLeft ? "│   " : "    "), true);
-            display(root.getRight(), prefix + (isLeft ? "│   " : "    "), false);
-        }
-    }
-    
-
-    public void display() {
-        display(root, "", true);
-    }
-    public void inorderTraversal(Node node){
+    public void inorderTraversal(Node node) {
         if (node != null) {
             inorderTraversal(node.getLeft());
             System.out.print(node.getKey() + " ");
             inorderTraversal(node.getRight());
         }
     }
-    public void preorderTraversal(Node node){
+
+    public void preorderTraversal(Node node) {
         if (node == null) {
             return;
         }
@@ -131,7 +123,8 @@ public class Tree {
         preorderTraversal(node.getLeft());
         preorderTraversal(node.getRight());
     }
-    public void postorderTraversal(Node node){
+
+    public void postorderTraversal(Node node) {
         if (node == null) {
             return;
         }
@@ -140,8 +133,18 @@ public class Tree {
         System.out.print(node.getKey() + " ");
     }
 
-
     public Node getRoot() {
         return root;
     }
+    // public void display(Node root, String prefix, boolean isLeft) {
+    // if (root != null) {
+    // System.out.println(prefix + (isLeft ? "|---" : "\--- ") + root.getKey());
+    // display(root.getLeft(), prefix + (isLeft ? "│ " : " "), true);
+    // display(root.getRight(), prefix + (isLeft ? "│ " : " "), false);
+    // }
+    // }
+
+    // public void display() {
+    // display(root, "", true);
+    // }
 }
