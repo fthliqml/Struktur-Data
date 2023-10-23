@@ -11,7 +11,7 @@ public class Main {
         tree.add(12);
         tree.add(13);
         tree.add(14);
-        tree.BalancingTree(tree.getRoot());
+        
 
         // tree.remove(10);
         System.out.println(" ");

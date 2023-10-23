@@ -71,6 +71,7 @@ public class Tree {
             return true;
         }
         insert(root, node);
+        BalancingTree(node);
         return true;
     }
 
@@ -87,7 +88,7 @@ public class Tree {
             parent.setRight(insert(parent.getRight(), node));
             parent.getRight().setParent(parent);
         }
-
+        
         return parent;
     }
 
@@ -138,87 +139,104 @@ public class Tree {
     }
 
     public void leftRotate(Node x) {
-        Node rightTemp = x.getRight();
-        x.setRight(rightTemp.getLeft());
-        if (rightTemp.getLeft() != null) {
-            rightTemp.getLeft().setParent(x);
+        Node rightChild = x.getRight();
+        x.setRight(rightChild.getLeft());
+        
+        if (rightChild.getLeft() != null) {
+            rightChild.getLeft().setParent(x);
         }
-        rightTemp.setParent(x.getParent());
+        
+        rightChild.setParent(x.getParent());
+        
         if (x.getParent() == null) {
-            root(rightTemp);
+            root = rightChild;
         } else if (x == x.getParent().getLeft()) {
-            x.getParent().setLeft(rightTemp);
+            x.getParent().setLeft(rightChild);
         } else {
-            x.getParent().setRight(rightTemp);
+            x.getParent().setRight(rightChild);
         }
-        rightTemp.setLeft(x);
-        x.setParent(rightTemp);
+        
+        rightChild.setLeft(x);
+        x.setParent(rightChild);
     }
+    
+    
 
     public void rightRotate(Node y) {
-        Node leftTemp = y.getLeft();
-        y.setLeft(leftTemp.getRight());
-
-        if (leftTemp.getRight() != null) {
-            leftTemp.getRight().setParent(y);
+        Node leftChild = y.getLeft();
+        y.setLeft(leftChild.getRight());
+        
+        if (leftChild.getRight() != null) {
+            leftChild.getRight().setParent(y);
         }
-
-        leftTemp.setParent(y.getParent());
-
+        
+        leftChild.setParent(y.getParent());
+        
         if (y.getParent() == null) {
-            root(leftTemp);
+            root = leftChild;
         } else if (y == y.getParent().getLeft()) {
-            y.getParent().setLeft(leftTemp);
+            y.getParent().setLeft(leftChild);
         } else {
-            y.getParent().setRight(leftTemp);
+            y.getParent().setRight(leftChild);
         }
-
-        leftTemp.setRight(y);
-        y.setParent(leftTemp);
+        
+        leftChild.setRight(y);
+        y.setParent(leftChild);
     }
+    
+    
 
     public void BalancingTree(Node node) {
-        while (node != root && node.getParent() != null && node.getParent().getParent().isRed()) {
-            if (node.getParent() == node.getParent().getParent().getLeft()) {
-                if (node.getParent().getParent().getRight().isRed()) {
-                    node.getParent().getParent().getRight().setRed(false);
-                    node.getParent().getParent().setRed(true);
-                    node.getParent().setRed(false);
-                    node = node.getParent().getParent();
+        while (node != null && node.isRed() && node.getParent() != null && node.getParent().isRed()) {
+            Node parent = node.getParent();
+            Node grandparent = parent.getParent();
+            
+            if (parent == grandparent.getLeft()) {
+                Node uncle = grandparent.getRight();
+                
+                if (uncle != null && uncle.isRed()) {
+                    parent.setRed(false);
+                    uncle.setRed(false);
+                    grandparent.setRed(true);
+                    node = grandparent;
                 } else {
-                    if (node == node.getParent().getRight()) {
-                        leftRotate(node.getParent());
-                        node = node.getLeft();
+                    if (node == parent.getRight()) {
+                        node = parent;
+                        leftRotate(node);
+                        parent = node.getParent();
                     }
-                    node.getParent().setRed(false);
-                    node.getParent().getParent().setRed(true);
-                    rightRotate(node.getParent().getParent());
+                    
+                    parent.setRed(false);
+                    grandparent.setRed(true);
+                    rightRotate(grandparent);
                 }
             } else {
-                if (node.getParent() == node.getParent().getParent().getRight()) {
-                    System.out.println("First conditional passed");
-                    if (node.getParent().getParent().getLeft().isRed()) {
-                        node.getParent().getParent().getLeft().setRed(false);
-                        node.getParent().getParent().setRed(true);
-                        node.getParent().setRed(false);
-                        node = node.getParent().getParent();
-                        System.out.println("Second Conditional passed");
-                    } else {
-                        if (node == node.getParent().getLeft()) {
-                            rightRotate(node.getParent());
-                            System.out.println("Third conditial pased");
-                        }
-                        node.getParent().setRed(false);
-                        node.getParent().getParent().setRed(true);
-                        leftRotate(node.getParent());
-                        System.out.println("4 conditional pass");
+                // Symmetric case: parent is the right child of grandparent
+                Node uncle = grandparent.getLeft();
+                
+                if (uncle != null && uncle.isRed()) {
+                    parent.setRed(false);
+                    uncle.setRed(false);
+                    grandparent.setRed(true);
+                    node = grandparent;
+                } else {
+                    if (node == parent.getLeft()) {
+                        node = parent;
+                        rightRotate(node);
+                        parent = node.getParent();
                     }
+                    
+                    parent.setRed(false);
+                    grandparent.setRed(true);
+                    leftRotate(grandparent);
                 }
             }
-            System.out.println("Finishing");
-            root.setRed(false);
         }
+        
+        root.setRed(false);
     }
+    
+    
 
     public void inorderTraversal(Node node) {
         if (node != null) {
