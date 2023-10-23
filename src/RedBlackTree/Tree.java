@@ -71,6 +71,7 @@ public class Tree {
             return true;
         }
         insert(root, node);
+        BalancingTree(node);
         return true;
     }
 
@@ -101,6 +102,7 @@ public class Tree {
             return false;
         }
         root = remove(root, key);
+        BalancingTree(root);
         System.out.println("Succeded Deleted " + key + " node");
 
         return true;
@@ -178,7 +180,7 @@ public class Tree {
     }
 
     public void BalancingTree(Node node) {
-        while (node != root && node.getParent() != null && node.getParent().getParent().isRed()) {
+        while (root != node && node.getParent() != null && node.getParent().isRed()) {
             if (node.getParent() == node.getParent().getParent().getLeft()) {
                 if (node.getParent().getParent().getRight().isRed()) {
                     node.getParent().getParent().getRight().setRed(false);
@@ -196,26 +198,24 @@ public class Tree {
                 }
             } else {
                 if (node.getParent() == node.getParent().getParent().getRight()) {
-                    System.out.println("First conditional passed");
-                    if (node.getParent().getParent().getLeft().isRed()) {
+                    if (node.getParent().getParent().getLeft() != null
+                            && node.getParent().getParent().getLeft().isRed()) {
                         node.getParent().getParent().getLeft().setRed(false);
                         node.getParent().getParent().setRed(true);
                         node.getParent().setRed(false);
                         node = node.getParent().getParent();
-                        System.out.println("Second Conditional passed");
                     } else {
                         if (node == node.getParent().getLeft()) {
                             rightRotate(node.getParent());
-                            System.out.println("Third conditial pased");
+                            node = node.getRight();
+
                         }
                         node.getParent().setRed(false);
                         node.getParent().getParent().setRed(true);
-                        leftRotate(node.getParent());
-                        System.out.println("4 conditional pass");
+                        leftRotate(node.getParent().getParent());
                     }
                 }
             }
-            System.out.println("Finishing");
             root.setRed(false);
         }
     }
@@ -250,15 +250,23 @@ public class Tree {
         return root;
     }
 
-    public void display(Node root, String prefix, boolean isLeft) {
-        if (root != null) {
-            System.out.println(prefix + (isLeft ? "|---" : "`--- ") + root.getKey());
-            display(root.getLeft(), prefix + (isLeft ? "│ " : " "), true);
-            display(root.getRight(), prefix + (isLeft ? "│ " : " "), false);
+    public void display() {
+        StringBuilder treeStringBuilder = new StringBuilder();
+        display(root, "", true, treeStringBuilder);
+        System.out.println(treeStringBuilder.toString());
+    }
+    
+    private void display(Node node, String prefix, boolean isLeft, StringBuilder treeStringBuilder) {
+        if (node != null) {
+            treeStringBuilder.append(prefix);
+            treeStringBuilder.append(isLeft ? "|-- " : "`-- ");
+            treeStringBuilder.append(node.getKey());
+            treeStringBuilder.append(node.isRed() ? " (R)" : " (B)");
+            treeStringBuilder.append("\n");
+    
+            display(node.getLeft(), prefix + (isLeft ? "|   " : "    "), true, treeStringBuilder);
+            display(node.getRight(), prefix + (isLeft ? "|   " : "    "), false, treeStringBuilder);
         }
     }
-
-    public void display() {
-        display(root, "", true);
-    }
+    
 }
