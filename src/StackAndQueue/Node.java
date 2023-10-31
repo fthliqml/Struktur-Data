@@ -2,7 +2,7 @@ package StackAndQueue;
 
 public class Node {
     private Object value;
-    private  Node next;
+    private Node next;
 
     public Node(Object value) {
         this.value = value;

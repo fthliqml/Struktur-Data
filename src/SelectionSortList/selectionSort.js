@@ -1,20 +1,5 @@
-const RandomNumber = (count) =>{
-  if (count<=0) {
-    throw new Error('Parameter tidak boleh kurang dari sama dengan 0');
-  }else if (count > 10000) {
-    throw new Error('Parameter tidak melebihi 10000');
-  }
-    const arrs = new Array();
-    for (let i = 0; i < count ; i++) {
-        let rand = Math.random();
-        const l = Math.floor(rand < 0.5 ? Math.random()* - 100: Math.random() * 100);
-        arrs.push(l);
-    }
-    return arrs;
-}
 function SelectionSort (arr) {
   let i, j, getIndex, temp;
-  console.time("kecepatan ");
   for (i = 0; i < arr.length; i++) {
     temp = arr[i];
 
@@ -31,13 +16,14 @@ function SelectionSort (arr) {
     console.log("Selected Value : "+temp);
     console.log(arr);
   }
-  console.log('Hasil Akhir'); 
-  console.log(arr);
-  console.timeEnd("kecepatan ");
+  return arr;
 }
 
-const array = RandomNumber(100);
+array = [95, 88, 92, 84, 97, 89, 91, 99, 86, 93, 87, 96, 83, 90, 100, 94, 82, 98, 85, 81]
 console.log('Tampilan Awal');
 console.log(array);
 console.log("");
-SelectionSort(array);
+Result = SelectionSort(array);
+console.log("");
+console.log('Hasil Akhir'); 
+console.log(Result);

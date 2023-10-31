@@ -1,20 +1,3 @@
-// Method Random Number
-const RandomNumber = (count) => {
-    if (count<=0) {
-      throw new Error('Parameter tidak boleh kurang dari sama dengan 0');
-    }else if (count > 10000) {
-      throw new Error('Parameter tidak melebihi 10000');
-    }
-    const arrs = new Array();
-    for (let i = 0; i < count ; i++) {
-        let rand = Math.random();
-        const l = Math.floor(rand < 0.5 ? Math.random()* - 100: Math.random() * 100);
-        arrs.push(l);
-    }
-    return arrs;
-}
-
-// Method Merge Sorting
 function merge(array){
     if (array.length <= 1) {
         return array;
@@ -46,13 +29,13 @@ function mergeAll(left,right) {
 }
 
 
-arr = RandomNumber(100);
-const sortedArray = merge(arr);
+arr = [1543, 2341, 7890, 5678, 4321, 9087, 3210, 8765, 4567, 1098, 5432, 9876, 8765, 2310, 5678, 9087, 8765, 1098, 6543, 3210]
+sortedArray = merge(arr);
 
-console.log("\nTampilan Awal : ");
+console.log("\nTampilan Awal Array: ");
 console.log(arr)
 
-console.log();
+console.log("");
 
-console.log("Tampilan Akhir : ");
+console.log("Tampilan Akhir Setelah Dilakukan Merge Sorting : ");
 console.log(sortedArray)
