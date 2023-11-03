@@ -1,0 +1,10 @@
+.hollow {
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0 );
+    -fx-padding: 10;
+    -fx-background-radius: 7;
+}
+
+.btn:hover{
+    -fx-cursor:hand ;
+    -fx-effect: dropshadow(three-pass-box, rgb(255, 255, 255), 10, 0, 0, 0 );
+}
