@@ -7,10 +7,14 @@ public class Node {
     private Node parent;
     private boolean red;
     private String value;
-    
-    public Node (String key, String value){
+    private String descEn;
+    private String descId;
+
+    public Node(String key, String value, String descId, String descEn) {
         this.key = key.toLowerCase();
         this.value = value.toLowerCase();
+        this.descEn = descEn.toLowerCase();
+        this.descId = descId.toLowerCase();
     }
 
     public void setRight(Node right){
@@ -51,6 +55,12 @@ public class Node {
     }
     public String getValue(){
         return value;
+    }
+    public String getDescId(){
+        return descId;
+    }
+    public String getDescEn(){
+        return descEn;
     }
     public void gimmick(){
         

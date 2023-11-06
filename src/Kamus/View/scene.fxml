@@ -100,8 +100,8 @@
                         <Font name="Arial Bold" size="20.0" />
                      </font>
                   </Label>
-                  <TextArea fx:id="tfDeskripsi" editable="false" layoutX="44.0" layoutY="46.0" prefHeight="147.0" prefWidth="294.0" styleClass="hollow" text="disini akan muncul contoh &#10;kalimat dan lain lain&#10;atau bisa juga gambar&#10;apa kah&#10;gitu" />
-                  <TextArea fx:id="tfDesc" editable="false" layoutX="427.0" layoutY="46.0" prefHeight="147.0" prefWidth="294.0" styleClass="hollow" text="disini akan muncul contoh &#10;kalimat dan lain lain&#10;atau bisa juga gambar&#10;apa kah&#10;gitu" />
+                  <TextArea fx:id="tfDeskripsi" editable="false" layoutX="43.0" layoutY="50.0" prefHeight="108.0" prefWidth="294.0" styleClass="hollow" text=".&#10;.&#10;.&#10;." />
+                  <TextArea fx:id="tfDesc" editable="false" layoutX="427.0" layoutY="50.0" prefHeight="108.0" prefWidth="294.0" styleClass="hollow" text=".&#10;.&#10;.&#10;." />
                </children>
             </AnchorPane>
          </center>

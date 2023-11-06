@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.net.URL;
 import java.util.ResourceBundle;
+
 import Kamus.Tree;
 import javafx.animation.RotateTransition;
 import javafx.event.ActionEvent;
@@ -46,7 +47,7 @@ public class MainController implements Initializable {
     
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        String[] stringArray = new String[82];
+        String[] stringArray = new String[156];
 
         try {
             String filename = "KataKunci.txt";
@@ -59,7 +60,7 @@ public class MainController implements Initializable {
                 int i = 0 ;
                 String line;
                 while ((line = bufferedReader.readLine()) != null) {
-                    stringArray[i] =  line.replaceAll("\\s", "");
+                    stringArray[i] =  line.replaceAll("\\s", " ");
                     i++;
                 }
             } catch (Exception e) {
@@ -70,21 +71,23 @@ public class MainController implements Initializable {
             System.out.println(e);
         }
 
-        for (int i = 0; i < stringArray.length; i +=2) {
+        for (int i = 0; i < stringArray.length; i +=4) {
             if (i + 1 < stringArray.length) {
-                IdEnTree.add(stringArray[i], stringArray[i+1]);
+                IdEnTree.add(stringArray[i], stringArray[i+1], stringArray[i + 2], stringArray[i+3]);
             }
         }
-        for (int i = 0; i < stringArray.length; i +=2) {
+        for (int i = 0; i < stringArray.length; i +=4) {
             if (i + 1 < stringArray.length) {
-                EnIdTree.add(stringArray[i + 1], stringArray[i]);
+                EnIdTree.add(stringArray[i + 1], stringArray[i], stringArray[i + 2], stringArray[i+3]);
             }
         }
     }
     
     void IDNtoENG(String key){
         if (IdEnTree.search(key) == true){
-            tfOutput.setText(IdEnTree.getResult(key));
+            tfOutput.setText(IdEnTree.getValue(key));
+            tfDeskripsi.setText(IdEnTree.getDescriptionId(tfInput.getText()));
+            tfDesc.setText(EnIdTree.getDescriptionEn(IdEnTree.getValue(tfInput.getText())));
         }
         else{
             tfOutput.setText(". . .");
@@ -93,7 +96,9 @@ public class MainController implements Initializable {
 
     void ENGtoIDN(String value){
         if (EnIdTree.search(value) == true){
-            tfOutput.setText(EnIdTree.getResult(value));
+            tfOutput.setText(EnIdTree.getValue(value));
+            tfDeskripsi.setText(IdEnTree.getDescriptionId(EnIdTree.getValue(tfInput.getText())));
+            tfDesc.setText(EnIdTree.getDescriptionEn(tfInput.getText()));
         }
         else{
             tfOutput.setText(". . .");
@@ -120,7 +125,7 @@ public class MainController implements Initializable {
     @FXML
     void btnSwap(ActionEvent event) {
         swap++;
-
+        String temp = "";
         RotateTransition rotate = new RotateTransition(Duration.seconds(0.3), imgSwap);
         rotate.setByAngle(180);
         rotate.play();
@@ -130,9 +135,18 @@ public class MainController implements Initializable {
             Linggris.setTranslateX(-463);
 
             tfInput.setPromptText("Translate");
-            tfInput.setText(null);
             tfOutput.setPromptText("Terjemahan");
-            tfOutput.setText(null);
+
+            if (tfInput.getText() != null){
+                if (IdEnTree.search(tfInput.getText()) == false) {
+                    tfInput.setText(null);
+                    tfOutput.setText(null);
+                } else {
+                    temp = tfInput.getText();
+                    tfInput.setText(tfOutput.getText());
+                    tfOutput.setText(temp);
+                }
+            }
 
         }
 
@@ -140,9 +154,19 @@ public class MainController implements Initializable {
             Lindo.setTranslateX(0);
             Linggris.setTranslateX(0);
             tfInput.setPromptText("Terjemahan");
-            tfInput.setText(null);
             tfOutput.setPromptText("Translate");
-            tfOutput.setText(null);
+
+            if (tfInput.getText() != null) {
+                if (EnIdTree.search(tfInput.getText()) == false) {
+                    tfInput.setText(null);
+                    tfOutput.setText(null);
+                } else {
+                    temp = tfInput.getText();
+                    tfInput.setText(tfOutput.getText());
+                    tfOutput.setText(temp);
+                }
+            }
+
         }
 
 

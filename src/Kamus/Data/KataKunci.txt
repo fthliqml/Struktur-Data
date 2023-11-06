@@ -1,82 +1,156 @@
 Pisau
 Knife
+Alat tajam untuk memotong benda.
+A sharp tool used for cutting objects.
 Cangkir
 Cup
+Wadah biasanya berbentuk cembung untuk minum.
+A usually curved container for drinking.
 Garpu
 Fork
+Alat makan dengan duri kecil untuk menusuk makanan.
+An eating utensil with small prongs for spearing food.
 Kapur
 Chalk
+Bahan tulis berwarna putih untuk menulis di papan tulis.
+A white writing material used for writing on a chalkboard.
 Pensil
 Pencil
+Alat tulis dengan inti grafit untuk menulis dan menggambar.
+A writing tool with a graphite core for writing and drawing.
 Mobil
 Car
+Kendaraan bermotor dengan empat roda untuk transportasi.
+A motor vehicle with four wheels used for transportation.
 Pintu
 Door
+Penghalang masuk ke dalam ruangan atau bangunan.
+A barrier allowing access into a room or building.
 Buku
 Book
+Kumpulan halaman dengan teks atau gambar yang membentuk cerita.
+A collection of pages with text or images forming a story.
 Pena
 Pen
+Alat tulis cair dengan ujung tajam untuk menulis di kertas.
+A fluid writing instrument with a sharp tip for writing on paper.
 Meja
 Table
+Alat untuk meletakkan barang atau makanan di atasnya.
+A piece of furniture for placing objects or food on it.
 Kursi
 Chair
+Alat untuk duduk, biasanya dengan sandaran dan empat kaki.
+A tool for sitting, usually with a backrest and four legs.
 Jendela
 Window
+Bukaan dengan kaca untuk memberikan cahaya dan udara ke dalam ruangan.
+An opening with glass to allow light and air into a room.
 Tas
 Bag
+Wadah portabel untuk membawa barang atau benda-benda lainnya.
+A portable container for carrying items or other objects.
 Bola
 Ball
+Benda bulat yang biasanya digunakan dalam permainan atau olahraga.
+A round object typically used in games or sports.
 Piring
 Plate
+Alat untuk meletakkan makanan di atasnya saat makan.
+A tool for placing food on it during meals.
 Jam
 Clock
+Alat untuk mengukur waktu, biasanya dengan jarum dan angka.
+A device for measuring time, usually with hands and numbers.
 Penghapus
 Eraser
+Alat untuk menghapus tanda pensil atau pena di atas kertas.
+A tool for removing pencil or pen marks from paper.
 Bendera
 Flag
+Simbol nasional atau kelompok, biasanya berkibar di tiang.
+A symbol of a nation or group, typically flown on a pole.
 Peta
 Map
+Gambat yang menunjukkan lokasi, wilayah, atau geografi.
+A diagram showing locations, regions, or geography.
 Penggaris
 Ruler
-Stabilo
-Highlighter
+Alat untuk mengukur panjang atau jarak di atas kertas atau permukaan lainnya.
+A tool for measuring length or distance on paper or other surfaces.
 Lem
 Glue
-Krayon
-Crayon
+Zat perekat untuk menyambungkan dua benda menjadi satu.
+An adhesive substance used to join two objects together.
 Pasar
 Market
+Tempat di mana barang dan makanan dijual dan dibeli oleh orang.
+A place where goods and food are sold and bought by people.
 Mesjid
 Mosque
+Tempat ibadah dalam agama Islam.
+A place of worship in the Islamic religion.
 Kantor
 Office
+Tempat di mana orang bekerja dan melakukan tugas-tugas administratif.
+A place where people work and perform administrative tasks.
 Perpustakaan
 Library
+Tempat di mana buku dan materi bacaan lainnya disimpan dan dipinjamkan.
+A place where books and other reading materials are stored and loaned.
 Restoran
 Restaurant
+Tempat di mana makanan dan minuman disajikan kepada pelanggan.
+A place where food and drinks are served to customers.
 Sekolah
 School
+Tempat di mana siswa belajar dan mendapatkan pendidikan.
+A place where students learn and receive education.
 Toko
 Store
+Tempat di mana barang-barang dijual kepada pelanggan.
+A place where goods are sold to customers.
 Kota
 City
+Pemukiman besar dengan pemerintahan sendiri.
+A large settlement with its own government.
 Bulan
 Moon
+Satelit alami Bumi yang mengorbit di sekitar planet.
+Earth's natural satellite orbiting around the planet.
 Bintang
 Star
+Benda langit bersinar yang terdapat di alam semesta.
+A shining celestial object found in the universe.
 Komputer
 Computer
+Alat pengolah data yang dapat melakukan tugas-tugas kompleks.
+A data processing tool capable of performing complex tasks.
 Cermin
 Mirror
+Benda yang memantulkan gambar orang atau objek.
+An object that reflects the image of a person or object.
 Foto
 Picture
+Gambar visual yang menggambarkan orang, tempat, atau objek.
+A visual image depicting a person, place, or object.
 Bantal
 Pillow
+Alas tidur kepala yang memberikan kenyamanan saat tidur.
+A headrest for sleeping that provides comfort during rest.
 Selimut
 Blanket
+Penutup tubuh saat tidur untuk menjaga suhu dan kenyamanan.
+A covering for the body during sleep to maintain temperature and comfort.
 Gayung
 Dipper
+Alat untuk menuangkan air dari tempat penyimpanan.
+A tool for pouring water from a storage container.
 Handuk
 Towel
+Alat pengering badan yang digunakan setelah mandi atau mencuci tangan.
+A body-drying tool used after bathing or washing hands.
 Kipas
 Fan
+Alat untuk menciptakan angin sejuk dan udara segar di dalam ruangan.
+A device for creating cool air and fresh breeze indoors.
