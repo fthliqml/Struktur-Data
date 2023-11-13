@@ -95,13 +95,28 @@
          <center>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffff;" BorderPane.alignment="CENTER">
                <children>
-                  <Label layoutX="322.0" layoutY="7.0" prefHeight="31.0" prefWidth="115.0" text="Description" textFill="#5442f5">
+                  <Label fx:id="lblDesc" alignment="CENTER" layoutX="238.0" layoutY="7.0" prefHeight="31.0" prefWidth="278.0" text="Description" textFill="#5442f5">
                      <font>
                         <Font name="Arial Bold" size="20.0" />
                      </font>
                   </Label>
                   <TextArea fx:id="tfDeskripsi" editable="false" layoutX="43.0" layoutY="50.0" prefHeight="108.0" prefWidth="294.0" styleClass="hollow" text=".&#10;.&#10;.&#10;." />
                   <TextArea fx:id="tfDesc" editable="false" layoutX="427.0" layoutY="50.0" prefHeight="108.0" prefWidth="294.0" styleClass="hollow" text=".&#10;.&#10;.&#10;." />
+                  <ImageView fx:id="imgGim1" fitHeight="178.0" fitWidth="175.0" layoutX="103.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Picture/davis.jpeg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="imgGim2" fitHeight="182.0" fitWidth="139.0" layoutX="506.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Picture/mcgregor.jpeg" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="lblClock" alignment="CENTER" layoutX="238.0" layoutY="167.0" prefHeight="31.0" prefWidth="278.0" text="Description" textFill="#5442f5">
+                     <font>
+                        <Font name="Arial Bold" size="26.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
          </center>
