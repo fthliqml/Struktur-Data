@@ -8,7 +8,6 @@ import java.net.URL;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
-
 import Kamus.Node;
 import Kamus.Tree;
 import javafx.animation.Animation;
@@ -23,6 +22,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 
 public class MainController implements Initializable {
@@ -60,6 +60,9 @@ public class MainController implements Initializable {
     @FXML
     private AnchorPane Linggris;
 
+    @FXML
+    private VBox vBox;
+
     private int swap = 0;
     private boolean gimmick = false;
     Tree IdEnTree = new Tree(); // Indonesia -> English
@@ -81,7 +84,7 @@ public class MainController implements Initializable {
         lblClock.setVisible(false);
         initClock();
 
-        String[] stringArray = new String[156];
+        String[] stringArray = new String[44];
 
         try {
             String filename = "KataKunci.txt";
@@ -124,6 +127,8 @@ public class MainController implements Initializable {
             tfDesc.setText(EnIdTree.getDescriptionEn(IdEnTree.getValue(tfInput.getText())));
         } else {
             tfOutput.setText(". . .");
+            tfDesc.setText(null);
+            tfDeskripsi.setText(null);
         }
     }
 
@@ -134,6 +139,8 @@ public class MainController implements Initializable {
             tfDesc.setText(EnIdTree.getDescriptionEn(tfInput.getText()));
         } else {
             tfOutput.setText(". . .");
+            tfDesc.setText(null);
+            tfDeskripsi.setText(null);
         }
     }
 
@@ -162,6 +169,8 @@ public class MainController implements Initializable {
 
     @FXML
     void btnSubmit(ActionEvent event) {
+        IdEnTree.inorderTraversal(IdEnTree.getRoot());
+
         if (gimmick == true) {
             lblDesc.setVisible(true);
             tfDesc.setVisible(true);
@@ -196,7 +205,6 @@ public class MainController implements Initializable {
                     lblDesc.setVisible(false);
                     tfDesc.setVisible(false);
                     tfDeskripsi.setVisible(false);
-
                     imgGim1.setVisible(true);
                     imgGim2.setVisible(true);
                     gimmick = true;
@@ -204,14 +212,17 @@ public class MainController implements Initializable {
                     // map Succeed
                     gimmick = true;
                     try {
-                        Runtime.getRuntime().exec(
-                                new String[] { "cmd", "/c", "start chrome https://maps.app.goo.gl/pAq67vZxGAdrWQfZA" });
+                        Runtime.getRuntime().exec(new String[] { "cmd", "/c", "start chrome https://maps.app.goo.gl/pAq67vZxGAdrWQfZA" });
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
+                } else if (strGimmick().compareTo("spinning") == 0) {
+                    RotateTransition rotate = new RotateTransition(Duration.seconds(1), vBox);
+                    rotate.setByAngle(360);
+                    rotate.play();
                 }
-            }
 
+            }
         }
     }
 
@@ -240,7 +251,6 @@ public class MainController implements Initializable {
                     tfOutput.setText(temp);
                 }
             }
-
         }
 
         else {
@@ -259,9 +269,6 @@ public class MainController implements Initializable {
                     tfOutput.setText(temp);
                 }
             }
-
         }
-
     }
-
 }

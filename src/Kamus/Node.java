@@ -17,51 +17,62 @@ public class Node {
         this.descId = descId.toLowerCase();
     }
 
-    public void setRight(Node right){
+    public void setRight(Node right) {
         this.right = right;
     }
-    public void setLeft(Node left){
+
+    public void setLeft(Node left) {
         this.left = left;
     }
 
-    public Node getRight(){
+    public Node getRight() {
         return right;
     }
-    public Node getLeft(){
+
+    public Node getLeft() {
         return left;
     }
-    public String getKey(){
+
+    public String getKey() {
         return key;
     }
-    public void setKey(String key){
+
+    public void setKey(String key) {
         this.key = key;
     }
-    public boolean isRed(){
+
+    public boolean isRed() {
         return red;
     }
 
-    public void setRed(boolean red){
+    public void setRed(boolean red) {
         this.red = red;
     }
 
-    public Node getParent(){
+    public Node getParent() {
         return parent;
     }
-    public void setParent(Node parent){
+
+    public void setParent(Node parent) {
         this.parent = parent;
     }
-    public void setValue(String value){
+
+    public void setValue(String value) {
         this.value = value;
     }
-    public String getValue(){
+
+    public String getValue() {
         return value;
     }
-    public String getDescId(){
+
+    public String getDescId() {
         return descId;
     }
-    public String getDescEn(){
+
+    public String getDescEn() {
         return descEn;
     }
+
     public String getGimmick() {
         if (key.compareTo("clock") == 0 || key.compareTo("jam") == 0) {
             return "clock";
@@ -75,7 +86,9 @@ public class Node {
         if (key.compareTo("peta") == 0 || key.compareTo("map") == 0) {
             return "link";
         }
-        
+        if (key.compareTo("putaran") == 0 || key.compareTo("rotate") == 0) {
+            return "spinning";
+        }
         return "none";
     }
 }

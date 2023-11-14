@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="555.0" prefWidth="755.0" stylesheets="@../Style/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Kamus.Controller.MainController">
+<VBox fx:id="vBox" prefHeight="555.0" prefWidth="755.0" stylesheets="@../Style/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Kamus.Controller.MainController">
    <children>
       <BorderPane prefHeight="561.0" prefWidth="702.0">
          <bottom>

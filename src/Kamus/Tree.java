@@ -1,8 +1,5 @@
 package Kamus;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Tree {
     private Node root;
 
@@ -237,8 +234,7 @@ public class Tree {
         boolean exist = search(root, key);
         if (!exist) {
             System.out.println("not exist");
-            List<String> similiar = similiarList(root, key);
-            return similiar.get(0);
+            return "none";
         }
         Node node = isExist(root, key);
         String result = node.getValue();
@@ -252,8 +248,7 @@ public class Tree {
         boolean exist = search(root, key);
         if (!exist) {
             System.out.println("not exist");
-            List<String> similiar = similiarList(root, key);
-            return similiar.get(0);
+            return "none";
         }
         Node node = isExist(root, key);
         String result = node.getDescId();
@@ -267,34 +262,13 @@ public class Tree {
         boolean exist = search(root, key);
         if (!exist) {
             System.out.println("not exist");
-            List<String> similiar = similiarList(root, key);
-            return similiar.get(0);
+            return "none";
         }
         Node node = isExist(root, key);
         String result = node.getDescEn();
         return result;
     }
 
-    public void similiar(Node parent, String key, List<String> similarKey) {
-        if (parent == null) {
-            return;
-        }
-        if (parent.getKey().compareTo(key) >= 0 && parent.getKey().startsWith(key)) {
-            similarKey.add(parent.getKey());
-        }
-        if (parent.getKey().compareTo(key) > 0) {
-            similiar(parent.getLeft(), key, similarKey);
-        } else {
-            similiar(parent.getRight(), key, similarKey);
-        }
-    }
-
-    public List<String> similiarList(Node parent, String key) {
-        List<String> similarKey = new ArrayList<>();
-        similiar(parent, key, similarKey);
-        return similarKey;
-
-    }
 
     public void inorderTraversal(Node node) {
         if (node != null) {
@@ -304,26 +278,30 @@ public class Tree {
         }
     }
 
-    public void preorderTraversal(Node node) {
-        if (node == null) {
-            return;
-        }
-        System.out.print(node.getKey() + " ");
-        preorderTraversal(node.getLeft());
-        preorderTraversal(node.getRight());
-    }
-
-    public void postorderTraversal(Node node) {
-        if (node == null) {
-            return;
-        }
-        postorderTraversal(node.getLeft());
-        postorderTraversal(node.getRight());
-        System.out.print(node.getKey() + " ");
-    }
-
     public Node getRoot() {
         return root;
     }
 
+
+    public static void printRedBlackTree(Node root) {
+        printRedBlackTreeUtil(root, 0);
+    }
+
+    private static final int COUNT = 5;
+
+    private static void printRedBlackTreeUtil(Node root, int space) {
+        if (root == null)
+            return;
+
+        space += COUNT;
+
+        printRedBlackTreeUtil(root.getRight(), space);
+
+        System.out.print("\n");
+        for (int i = COUNT; i < space; i++)
+            System.out.print(" ");
+        System.out.print((root.isRed() ? "\u001B[31m" : "\u001B[0m") + root.getKey() + "\u001B[0m");
+
+        printRedBlackTreeUtil(root.getLeft(), space);
+    }
 }
